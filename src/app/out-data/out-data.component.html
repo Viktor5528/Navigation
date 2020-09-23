@@ -2,7 +2,10 @@
   <mat-list role="list" *ngFor="let x of getData() | async">
     <mat-list-item role="listitem">
       {{ x }}
-      <button mat-button (click)="deleteItem(x)">Delete</button>
+      <button mat-icon-button matSuffix (click)="deleteItem(x)"><mat-icon>clear</mat-icon></button>
     </mat-list-item>
   </mat-list>
 
+  
+  
+  

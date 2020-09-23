@@ -10,12 +10,12 @@ import { DataService } from '../data.service';
   styleUrls: ['./out-data.component.scss'],
 })
 export class OutDataComponent {
-  constructor(private ds: DataService) {}
+  constructor(private dataservice: DataService) {}
   public element: string;
   public getData(){
-    return this.ds.getData();
+    return this.dataservice.getData();
   }
   public deleteItem(element: string) {
-    this.ds.deleteItem(element);
+    this.dataservice.deleteItem(element);
   }
 }
