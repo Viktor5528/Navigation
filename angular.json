@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -92,14 +93,16 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
+            "eslintConfig": "eslintrc.js",
             "tsConfig": [
               "tsconfig.app.json",
               "tsconfig.spec.json",
@@ -123,6 +126,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "Navigation"
 }

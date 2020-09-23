@@ -1,0 +1,6 @@
+
+<div *ngFor="let x of getData() | async">
+  <h1>{{ x }}</h1>
+  <button mat-button (click)="deleteItem(x)">Delete</button>
+</div>
+
