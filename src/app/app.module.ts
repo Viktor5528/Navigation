@@ -27,6 +27,7 @@ import { SnackComponent } from './snack/snack.component';
 
 
 
+
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'input', component: InpDataComponent },
