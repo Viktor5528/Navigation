@@ -2,9 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { BntLeftComponent } from './bnt-left/bnt-left.component';
@@ -42,8 +46,11 @@ const appRoutes: Routes = [
     MatSliderModule,
     MatButtonModule,
     MatCardModule,
+    MatListModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
