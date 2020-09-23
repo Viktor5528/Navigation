@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { BntLeftComponent } from './bnt-left/bnt-left.component';
@@ -19,6 +20,7 @@ import { DataService } from './data.service';
 import { InpDataComponent } from './inp-data/inp-data.component';
 import { OutDataComponent } from './out-data/out-data.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { SnackComponent } from './snack/snack.component';
 
 
 
@@ -37,6 +39,7 @@ const appRoutes: Routes = [
     InpDataComponent,
     OutDataComponent,
     WelcomeComponent,
+    SnackComponent
   ],
   imports: [
     BrowserModule,
@@ -48,9 +51,10 @@ const appRoutes: Routes = [
     MatCardModule,
     MatListModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ],
-  providers: [DataService],
+  providers: [DataService, SnackComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
