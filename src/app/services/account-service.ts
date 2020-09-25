@@ -1,8 +1,8 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { URLs } from "./URL";
-import { SignINModel, SignUPModel } from "./interfaces/AccountModels";
-import { Observable } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { URLs } from './URL';
+import { SignINModel, SignUPModel } from './interfaces/AccountModels';
+import { Observable } from 'rxjs';
 
 
 @Injectable()

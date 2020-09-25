@@ -1,5 +1,6 @@
 {
-  "extends": "tslint:recommended",
+  "extends": ["tslint:recommended"],
+  
   "rulesDirectory": [
     "codelyzer"
   ],
@@ -66,7 +67,7 @@
     ],
     "quotemark": [
       true,
-      "double"
+      "single"
     ],
     "semicolon": {
       "options": [
@@ -83,8 +84,7 @@
       }
     },
     "typedef": [
-      true,
-      "call-signature"
+      false
     ],
     "typedef-whitespace": {
       "options": [

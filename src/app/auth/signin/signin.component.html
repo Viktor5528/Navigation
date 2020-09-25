@@ -9,19 +9,18 @@
         type="login"
         class="form-control"
         required
-        
         [(ngModel)]="model.email"
         name="email"
         #email="ngModel"
         autocomplete="off"
       />
       <mat-error [hidden]="email.valid || email.pristine">
-        Поле имя обязательное для заполнения
+        Поле email обязательное для заполнения
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-group" appearance="fill" autocomplete="off">
-      <mat-label >Password</mat-label>
+      <mat-label>Password</mat-label>
       <input
         matInput
         type="password"
@@ -33,10 +32,13 @@
         autocomplete="off"
       />
       <mat-error [hidden]="password.valid || password.pristine">
-        Поле возраст обязательное для заполнения
+        Поле password обязательное для заполнения
       </mat-error>
     </mat-form-field>
-<br>
-    <button mat-button type="submit" [disabled]="!signInForm.form.valid">Sign In</button>
+    <br />
+    <button mat-button type="submit" [disabled]="!signInForm.form.valid">
+      Sign In
+    </button>
+    <mat-error [hidden]="!errorMessage" class="error">{{ errorMessage }}</mat-error>
   </form>
 </div>
