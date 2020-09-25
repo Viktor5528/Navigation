@@ -3,33 +3,28 @@ import { Observable } from 'rxjs';
 import { AccountService } from 'src/app/services/account-service';
 import { SignINModel } from 'src/app/services/interfaces/AccountModels';
 
-
 @Component({
   selector: 'app-signin',
   templateUrl: 'signin.component.html',
-  styleUrls: [
-    'signin.component.scss'
-  ]
+  styleUrls: ['signin.component.scss'],
 })
 export class SignInComponent {
-  constructor(private http: AccountService) {
-
-  }
+  constructor(private http: AccountService) {}
   model: SignINModel = { email: '', password: '' };
-  token;
   errorMessage: string;
 
   submitted = false;
 
   onSubmit(): void {
     this.http.SignIN(this.model).subscribe(
-      result => {
+      (result) => {
         if (result) {
-          this.token = result;
-          console.log(this.token.token);
+          const token = result.token;
+          localStorage.setItem('token', token);
+          //add router
         }
       },
-      error => {
+      (error) => {
         this.errorMessage = error.error;
       }
     );

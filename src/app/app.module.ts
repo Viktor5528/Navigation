@@ -2,7 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { MatSliderModule } from '@angular/material/slider';
@@ -27,12 +31,7 @@ import { OutDataComponent } from './out-data/out-data.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SnackComponent } from './snack/snack.component';
 import { BodyComponent } from './body/body.component';
-
-
-
-
-
-
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -66,9 +65,20 @@ const appRoutes: Routes = [
     MatInputModule,
     MatIconModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [DataService, SnackComponent, HttpClient, AnswerService, AccountService],
+  providers: [
+    DataService,
+    SnackComponent,
+    HttpClient,
+    AnswerService,
+    AccountService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
