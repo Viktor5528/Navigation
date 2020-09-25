@@ -25,8 +25,10 @@ import { WelcomeComponent } from "./welcome/welcome.component";
 import { SnackComponent } from "./snack/snack.component";
 
 import { DataService } from "./data.service";
-import { AnswerService } from './services/answer-service';
-import { AccountService } from './services/account-service';
+import { AnswerService } from "./services/answer-service";
+import { AccountService } from "./services/account-service";
+import { SignInComponent } from "./auth/signin/signin.component";
+import { SignUpComponent } from "./auth/signup/signup.component";
 
 
 
@@ -37,6 +39,7 @@ const appRoutes: Routes = [
   { path: "", component: WelcomeComponent },
   { path: "input", component: InpDataComponent },
   { path: "output", component: OutDataComponent },
+  { path: "signin", component: SignInComponent },
   { path: "**", redirectTo: "" },
 ];
 @NgModule({
@@ -49,6 +52,8 @@ const appRoutes: Routes = [
     OutDataComponent,
     WelcomeComponent,
     SnackComponent,
+    SignInComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,

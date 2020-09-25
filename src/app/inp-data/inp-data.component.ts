@@ -22,7 +22,6 @@ export class InpDataComponent {
 
   public signIn() {
     this.tokenValue = this.http.SignIN(this.body);
-
   }
   public save(): void {
     this._snackBar.openFromComponent(SnackComponent, { duration: 1000 });
