@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { Observable } from "rxjs";
+import { AccountService } from "src/app/services/account-service";
 import { SignINModel } from "src/app/services/interfaces/AccountModels";
 
 
@@ -10,12 +12,15 @@ import { SignINModel } from "src/app/services/interfaces/AccountModels";
   ]
 })
 export class SignInComponent {
+  constructor(private http: AccountService) {
 
+  }
   model: SignINModel = { email: "", password: "" };
-
-  submitted: boolean = false;
+  token: Observable<any>;
+  submitted = false;
 
   onSubmit(): void {
-    this.submitted = true;
+    this.token = this.http.SignIN(this.model);
+    this.token.subscribe(x => console.log(x.token));
   }
 }

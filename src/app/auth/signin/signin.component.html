@@ -1,7 +1,7 @@
 <div class="container">
   <h3>Sign In</h3>
 
-  <form>
+  <form (submit)="onSubmit()" #signInForm="ngForm">
     <mat-form-field class="form-group" appearance="fill" autocomplete="off">
       <mat-label>Email</mat-label>
       <input
@@ -37,6 +37,6 @@
       </mat-error>
     </mat-form-field>
 <br>
-    <button mat-button type="submit">Sign In</button>
+    <button mat-button type="submit" [disabled]="!signInForm.form.valid">Sign In</button>
   </form>
 </div>
