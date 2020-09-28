@@ -7,7 +7,7 @@ import {
   HttpClientModule,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
@@ -38,6 +38,7 @@ const appRoutes: Routes = [
   { path: 'input', component: InpDataComponent },
   { path: 'output', component: OutDataComponent },
   { path: 'signin', component: SignInComponent },
+  { path: 'signup', component: SignUpComponent},
   { path: '**', redirectTo: '' },
 ];
 @NgModule({
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MatButtonModule,

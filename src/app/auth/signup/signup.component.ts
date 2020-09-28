@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account-service';
+import { SignUPModel } from 'src/app/services/interfaces/AccountModels';
 
 
 @Component({
@@ -7,11 +10,31 @@ import { AccountService } from 'src/app/services/account-service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent {
+  signUpform: FormGroup;
+  model: SignUPModel = { login: '', age: 0, password: '', passwordConfirm: '' };
+  errorMessage: string;
+  constructor(private http: AccountService, private route: Router) {
+    this.signUpform = new FormGroup({
+      'login': new FormControl('', [Validators.required, Validators.email]),
+      'age': new FormControl('', [Validators.required, Validators.min(18), Validators.max(99)]),
+      'password': new FormControl('', Validators.required)
+    });
+  }
 
-  constructor(private http: AccountService) { }
-
-  ngOnInit(): void {
+  onSubmit() {
+    this.model.passwordConfirm = this.model.password;
+    this.http.SignUP(this.model).subscribe(
+      result => {
+        if (result) {
+          this.route.navigate(['signin']);
+        }
+      },
+      error => {
+        this.errorMessage = error;
+        console.log(error.error)
+      }
+    );
   }
 
 }

@@ -1,1 +1,72 @@
-<p>signup works!</p>
+<div class="container">
+  <h3>Sign Up</h3>
+  <form [formGroup]="signUpform">
+    <mat-form-field appearance="fill" autocomplete="off">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        formControlName="login"
+        autocomplete="off"
+        [(ngModel)]="model.login"
+      />
+      <mat-error
+        [hidden]="
+          signUpform.controls['login'].valid ||
+          signUpform.controls['login'].pristine
+        "
+      >
+        Поле обязательное для заполнения.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" autocomplete="off">
+      <mat-label>Возраст</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="age"
+        autocomplete="off"
+        [(ngModel)]="model.age"
+      />
+      <mat-error
+        [hidden]="
+          signUpform.controls['age'].pristine ||
+          signUpform.controls['age'].valid
+        "
+      >
+        Поле обязательное для заполнения.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" autocomplete="off">
+      <mat-label>Пароль</mat-label>
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+        autocomplete="off"
+        [(ngModel)]="model.password"
+      />
+      <mat-error
+        [hidden]="
+          signUpform.controls['login'].valid ||
+          signUpform.controls['login'].pristine
+        "
+      >
+        Поле обязательно для заполнения.
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <button
+      mat-button
+      [disabled]="signUpform.invalid"
+      type="submit"
+      (click)="onSubmit()"
+      (keydown.Enter)="onSubmit()"
+    >
+      Sign Up
+    </button>
+    <mat-error [hidden]="!errorMessage" class="error">{{
+      errorMessage
+    }}</mat-error>
+  </form>
+</div>
