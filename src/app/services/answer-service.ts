@@ -1,7 +1,7 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { URLs } from "./URL";
-import { UpdateAnswerModel, CreateAnswerModel, DeleteAnswerModel } from "./interfaces/AnswerModels";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { URLs } from './URL';
+import { UpdateAnswerModel, CreateAnswerModel, DeleteAnswerModel } from './interfaces/AnswerModels';
 import { Observable } from 'rxjs';
 
 @Injectable()
