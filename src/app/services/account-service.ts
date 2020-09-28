@@ -15,4 +15,7 @@ export class AccountService {
     public SignIN(body: SignINModel): Observable<any> {
         return this.http.post(URLs.SignInURL, body);
     }
+    public deleteToken() {
+        localStorage.removeItem('token');
+    }
 }
