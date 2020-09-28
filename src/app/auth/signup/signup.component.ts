@@ -31,8 +31,7 @@ export class SignUpComponent {
         }
       },
       error => {
-        this.errorMessage = error;
-        console.log(error.error);
+        this.errorMessage = error.error;
       }
     );
   }
