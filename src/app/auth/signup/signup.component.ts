@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account-service';
@@ -16,9 +16,9 @@ export class SignUpComponent {
   errorMessage: string;
   constructor(private http: AccountService, private route: Router) {
     this.signUpform = new FormGroup({
-      'login': new FormControl('', [Validators.required, Validators.email]),
-      'age': new FormControl('', [Validators.required, Validators.min(18), Validators.max(99)]),
-      'password': new FormControl('', Validators.required)
+      login: new FormControl('', [Validators.required, Validators.email]),
+      age: new FormControl('', [Validators.required, Validators.min(18), Validators.max(99)]),
+      password: new FormControl('', Validators.required)
     });
   }
 
@@ -32,7 +32,7 @@ export class SignUpComponent {
       },
       error => {
         this.errorMessage = error;
-        console.log(error.error)
+        console.log(error.error);
       }
     );
   }

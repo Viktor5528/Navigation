@@ -16,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { DataService } from './data.service';
 import { AnswerService } from './services/answer-service';
@@ -68,6 +69,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatSnackBarModule,
     HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     DataService,
