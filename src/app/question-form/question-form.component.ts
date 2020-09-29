@@ -54,10 +54,6 @@ export class QuestionFormComponent {
       error => {
         this.errorMessage = error.error;
       }
-
     );
-
-
-
   }
 }

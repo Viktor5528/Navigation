@@ -55,5 +55,8 @@
     >
       Create
     </button>
+    <mat-error [hidden]="!errorMessage" class="error">{{
+      errorMessage
+    }}</mat-error>
   </form>
 </div>

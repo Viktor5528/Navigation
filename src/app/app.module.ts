@@ -16,8 +16,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 
 import { DataService } from './data.service';
@@ -29,7 +29,6 @@ import { SignInComponent } from './auth/signin/signin.component';
 import { SignUpComponent } from './auth/signup/signup.component';
 import { BtnLeftComponent } from './bnt-left/bnt-left.component';
 import { HeaderComponent } from './header/header.component';
-import { InpDataComponent } from './inp-data/inp-data.component';
 import { OutDataComponent } from './out-data/out-data.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SnackComponent } from './snack/snack.component';
@@ -41,11 +40,10 @@ import { QuestionService } from './services/question-service';
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
-  { path: 'input', component: InpDataComponent },
   { path: 'output', component: OutDataComponent },
   { path: 'signin', component: SignInComponent },
-  { path: 'signup', component: SignUpComponent},
-  { path: 'question', component: QuestionFormComponent},
+  { path: 'signup', component: SignUpComponent },
+  { path: 'question', component: QuestionFormComponent },
   { path: '**', redirectTo: '' },
 ];
 @NgModule({
@@ -54,7 +52,6 @@ const appRoutes: Routes = [
     BtnLeftComponent,
     HeaderComponent,
     BodyComponent,
-    InpDataComponent,
     OutDataComponent,
     WelcomeComponent,
     SnackComponent,
@@ -94,4 +91,4 @@ const appRoutes: Routes = [
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
