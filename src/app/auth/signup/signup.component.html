@@ -1,15 +1,9 @@
 <div class="container">
-  <h3>Sign Up</h3>
+  <h2>Sign Up</h2>
   <form (submit)="onSubmit()" [formGroup]="signUpform">
     <mat-form-field appearance="fill" autocomplete="off">
       <mat-label>Email</mat-label>
-      <input
-        matInput
-        type="email"
-        formControlName="login"
-        autocomplete="off"
-        [(ngModel)]="model.login"
-      />
+      <input matInput type="email" formControlName="login" autocomplete="off" />
       <mat-error
         [hidden]="
           signUpform.controls['login'].valid ||
@@ -21,13 +15,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill" autocomplete="off">
       <mat-label>Возраст</mat-label>
-      <input
-        matInput
-        type="number"
-        formControlName="age"
-        autocomplete="off"
-        [(ngModel)]="model.age"
-      />
+      <input matInput type="number" formControlName="age" autocomplete="off" />
       <mat-error
         [hidden]="
           signUpform.controls['age'].pristine ||
@@ -44,7 +32,6 @@
         type="password"
         formControlName="password"
         autocomplete="off"
-        [(ngModel)]="model.password"
       />
       <mat-error
         [hidden]="

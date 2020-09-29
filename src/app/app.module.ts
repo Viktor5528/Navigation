@@ -16,7 +16,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+
 
 import { DataService } from './data.service';
 import { AnswerService } from './services/answer-service';
@@ -33,6 +35,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SnackComponent } from './snack/snack.component';
 import { BodyComponent } from './body/body.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { QuestionFormComponent } from './question-form/question-form.component';
+import { QuestionService } from './services/question-service';
+
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -40,6 +45,7 @@ const appRoutes: Routes = [
   { path: 'output', component: OutDataComponent },
   { path: 'signin', component: SignInComponent },
   { path: 'signup', component: SignUpComponent},
+  { path: 'question', component: QuestionFormComponent},
   { path: '**', redirectTo: '' },
 ];
 @NgModule({
@@ -54,6 +60,7 @@ const appRoutes: Routes = [
     SnackComponent,
     SignInComponent,
     SignUpComponent,
+    QuestionFormComponent
   ],
   imports: [
     BrowserModule,
@@ -69,12 +76,14 @@ const appRoutes: Routes = [
     MatIconModule,
     MatSnackBarModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [
     DataService,
     SnackComponent,
     HttpClient,
+    QuestionService,
     AnswerService,
     AccountService,
     {

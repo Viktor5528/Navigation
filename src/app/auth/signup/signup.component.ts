@@ -12,9 +12,10 @@ import { SignUPModel } from 'src/app/services/interfaces/AccountModels';
 })
 export class SignUpComponent {
   signUpform: FormGroup;
-  model: SignUPModel = { login: '', age: 0, password: '', passwordConfirm: '' };
+  model: SignUPModel;
   errorMessage: string;
   constructor(private http: AccountService, private route: Router) {
+
     this.signUpform = new FormGroup({
       login: new FormControl('', [Validators.required, Validators.email]),
       age: new FormControl('', [Validators.required, Validators.min(18), Validators.max(99)]),
@@ -23,6 +24,7 @@ export class SignUpComponent {
   }
 
   onSubmit() {
+    this.model = this.signUpform.value;
     this.model.passwordConfirm = this.model.password;
     this.http.SignUP(this.model).subscribe(
       result => {

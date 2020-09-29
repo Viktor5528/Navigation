@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>Question</h2>
+  <form [formGroup]="questionForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Question text</mat-label>
+      <input matInput type="text" formControlName="text" />
+    </mat-form-field>
+
+    <div formArrayName="answers" appearance="fill">
+      <div
+        *ngFor="
+          let x of questionForm.controls['answers']['controls'];
+          let i = index
+        "
+      >
+        <div [formGroupName]="i">
+          <mat-form-field appearance="fill">
+            <mat-label>Answer text</mat-label>
+            <input matInput formControlName="text" /> </mat-form-field
+          ><br />
+          <mat-form-field appearance="fill">
+            <mat-label>it's correct answer?</mat-label>
+            <mat-select formControlName="isCorrect">
+              <mat-option value="true">True</mat-option>
+              <mat-option value="false">False</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Complexity</mat-label>
+      <mat-select formControlName="complexity">
+        <mat-option value="true">True</mat-option>
+        <mat-option value="false">False</mat-option>
+      </mat-select> </mat-form-field
+    ><br />
+
+    <mat-form-field appearance="fill">
+      <mat-label>Theme</mat-label>
+      <mat-select formControlName="theme">
+        <mat-option value="1">B</mat-option>
+        <mat-option value="2">It</mat-option>
+        <mat-option value="3">Math</mat-option>
+      </mat-select> </mat-form-field
+    ><br />
+
+    <button
+      [disabled]="questionForm.invalid"
+      mat-flat-button
+      type="submit"
+      (click)="onSubmit()"
+      (keydown.Enter)="onSubmit()"
+    >
+      Create
+    </button>
+  </form>
+</div>
