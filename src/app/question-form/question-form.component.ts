@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Theme } from '../services/enums/theme.enum';
 import { CreateAnswerModel } from '../services/interfaces/AnswerModels';
 import { CreateQuestionModel } from '../services/interfaces/QuestionModel';
 import { QuestionService } from '../services/question-service';
@@ -13,9 +12,8 @@ import { QuestionService } from '../services/question-service';
 })
 export class QuestionFormComponent {
 
-  errorMessage: string;
+  error: string;
   questionForm: FormGroup;
-  model: CreateQuestionModel;
   answerModel: CreateAnswerModel;
 
   constructor(private http: QuestionService, private route: Router) {
@@ -24,10 +22,10 @@ export class QuestionFormComponent {
       answers: new FormArray([
         new FormGroup({
           text: new FormControl('', Validators.required),
-          isCorrect: new FormControl()
+          isCorrect: new FormControl(true)
         })
       ]),
-      complexity: new FormControl('', [Validators.required]),
+      complexity: new FormControl(true, [Validators.required]),
       theme: new FormControl(1, Validators.required)
     });
   }
@@ -40,19 +38,16 @@ export class QuestionFormComponent {
       }));
   }
   public onSubmit() {
-    const complexity = !!this.questionForm.value.complexity;
-    // tslint:disable-next-line: radix
-    const theme = parseInt(this.questionForm.value.theme);
-    this.questionForm.value.answers.map(item => item.isCorrect = !!item.isCorrect);
-    this.model = { ...this.questionForm.value, complexity, theme };
-    this.http.createQuestion(this.model).subscribe(
+
+    this.http.createQuestion(this.questionForm.getRawValue()).subscribe(
       result => {
         if (result) {
-          this.route.navigate(['signin']);
+          this.questionForm.reset();
+          (this.questionForm.controls.answers as FormArray).controls.splice(1);
         }
       },
       error => {
-        this.errorMessage = error.error;
+        this.error = error.error;
       }
     );
   }

@@ -15,10 +15,9 @@
   mat-label {
     margin-left: 8px;
   }
-  mat-button {
+  button {
     text-align: center;
-    margin-left: 8px;
-    background-color: lightblue;
+    margin: 0 auto;
   }
   .error{
     text-align: center;
@@ -26,4 +25,7 @@
   h2{
       text-align: center;
       width: 80%;
+  }
+  hr{
+    width: 85%;
   }

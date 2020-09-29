@@ -3,7 +3,7 @@
   <form [formGroup]="questionForm">
     <mat-form-field appearance="fill">
       <mat-label>Question text</mat-label>
-      <input matInput type="text" formControlName="text" />
+      <input matInput type="text" formControlName="text" autocomplete="off" />
     </mat-form-field>
 
     <div formArrayName="answers" appearance="fill">
@@ -14,35 +14,43 @@
         "
       >
         <div [formGroupName]="i">
+          <h2>Answer</h2>
           <mat-form-field appearance="fill">
             <mat-label>Answer text</mat-label>
-            <input matInput formControlName="text" /> </mat-form-field
+            <input
+              matInput
+              formControlName="text"
+              autocomplete="off"
+            /> </mat-form-field
           ><br />
           <mat-form-field appearance="fill">
             <mat-label>it's correct answer?</mat-label>
             <mat-select formControlName="isCorrect">
-              <mat-option value="true">True</mat-option>
-              <mat-option value="false">False</mat-option>
+              <mat-option [value]="true">True</mat-option>
+              <mat-option [value]="false">False</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
+        <hr />
       </div>
+      <button mat-button (click)="addAnswer()">Add answer</button>
+      <br />
     </div>
 
     <mat-form-field appearance="fill">
       <mat-label>Complexity</mat-label>
       <mat-select formControlName="complexity">
-        <mat-option value="true">True</mat-option>
-        <mat-option value="false">False</mat-option>
+        <mat-option [value]="true">True</mat-option>
+        <mat-option [value]="false">False</mat-option>
       </mat-select> </mat-form-field
     ><br />
 
     <mat-form-field appearance="fill">
       <mat-label>Theme</mat-label>
       <mat-select formControlName="theme">
-        <mat-option value="1">B</mat-option>
-        <mat-option value="2">It</mat-option>
-        <mat-option value="3">Math</mat-option>
+        <mat-option [value]="1">B</mat-option>
+        <mat-option [value]="2">It</mat-option>
+        <mat-option [value]="3">Math</mat-option>
       </mat-select> </mat-form-field
     ><br />
 
@@ -55,8 +63,6 @@
     >
       Create
     </button>
-    <mat-error [hidden]="!errorMessage" class="error">{{
-      errorMessage
-    }}</mat-error>
+    <mat-error [hidden]="!error" class="error">{{ error }}</mat-error>
   </form>
 </div>
