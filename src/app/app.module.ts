@@ -36,8 +36,9 @@ import { BodyComponent } from './body/body.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { QuestionFormComponent } from './question-form/question-form.component';
 import { QuestionService } from './services/question-service';
-import { QuizFormComponent } from './quiz-form/quiz-form.component';
+
 import { QuizService } from './services/quiz-service';
+import { QuizFormComponent } from './quiz-form/quiz-form.component';
 
 
 const appRoutes: Routes = [
