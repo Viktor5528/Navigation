@@ -22,7 +22,7 @@ export class QuestionFormComponent {
       answers: new FormArray([
         new FormGroup({
           text: new FormControl('', Validators.required),
-          isCorrect: new FormControl(true)
+          isCorrect: new FormControl(true, Validators.required)
         })
       ]),
       complexity: new FormControl(true, [Validators.required]),

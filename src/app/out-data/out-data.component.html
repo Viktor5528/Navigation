@@ -1,11 +1,11 @@
-  <h2>Data</h2>
-  <mat-list *ngFor="let x of getData() | async">
+<div class="container">
+  <h2>Questions</h2>
+  <mat-list *ngFor="let x of questions">
     <mat-list-item>
-      {{ x }}
-      <button mat-icon-button matSuffix (click)="deleteItem(x)"><mat-icon>clear</mat-icon></button>
+      {{ x.text }}, {{x.complexity}}
+      <button mat-icon-button matSuffix (click)="deleteItem(x.id)">
+        <mat-icon>clear</mat-icon>
+      </button>
     </mat-list-item>
   </mat-list>
-
-  
-  
-  
+</div>
