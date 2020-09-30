@@ -16,7 +16,7 @@ export class QuestionFormComponent {
   questionForm: FormGroup;
   answerModel: CreateAnswerModel;
 
-  constructor(private http: QuestionService, private route: Router) {
+  constructor(private http: QuestionService) {
     this.questionForm = new FormGroup({
       text: new FormControl('', [Validators.required, Validators.minLength(10)]),
       answers: new FormArray([
