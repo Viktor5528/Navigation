@@ -37,6 +37,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { QuestionFormComponent } from './question-form/question-form.component';
 import { QuestionService } from './services/question-service';
 import { QuizFormComponent } from './quiz-form/quiz-form.component';
+import { QuizService } from './services/quiz-service';
 
 
 const appRoutes: Routes = [
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
   { path: 'signin', component: SignInComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'question', component: QuestionFormComponent },
+  { path: 'quiz', component: QuizFormComponent },
   { path: '**', redirectTo: '' },
 ];
 @NgModule({
@@ -59,6 +61,7 @@ const appRoutes: Routes = [
     SignInComponent,
     SignUpComponent,
     QuestionFormComponent,
+    QuizFormComponent,
     QuizFormComponent
   ],
   imports: [
@@ -83,6 +86,7 @@ const appRoutes: Routes = [
     SnackComponent,
     HttpClient,
     QuestionService,
+    QuizService,
     AnswerService,
     AccountService,
     {

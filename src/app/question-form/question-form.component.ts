@@ -14,7 +14,6 @@ export class QuestionFormComponent {
 
   error: string;
   questionForm: FormGroup;
-  answerModel: CreateAnswerModel;
 
   constructor(private http: QuestionService) {
     this.questionForm = new FormGroup({
