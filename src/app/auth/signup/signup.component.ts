@@ -26,6 +26,7 @@ export class SignUpComponent {
   onSubmit() {
     this.model = this.signUpform.value;
     this.model.passwordConfirm = this.model.password;
+    console.log(this.model)
     this.http.SignUP(this.model).subscribe(
       result => {
         if (result) {

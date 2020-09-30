@@ -36,6 +36,7 @@ import { BodyComponent } from './body/body.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { QuestionFormComponent } from './question-form/question-form.component';
 import { QuestionService } from './services/question-service';
+import { QuizFormComponent } from './quiz-form/quiz-form.component';
 
 
 const appRoutes: Routes = [
@@ -57,7 +58,8 @@ const appRoutes: Routes = [
     SnackComponent,
     SignInComponent,
     SignUpComponent,
-    QuestionFormComponent
+    QuestionFormComponent,
+    QuizFormComponent
   ],
   imports: [
     BrowserModule,
