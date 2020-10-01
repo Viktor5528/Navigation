@@ -3,13 +3,8 @@
   <form [formGroup]="quizForm">
     <mat-form-field appearance="fill">
       <mat-label>Quiz name</mat-label>
-      <input
-        matInput
-        type="text"
-        formControlName="name"
-        autocomplete="off"
-      /> </mat-form-field
-    ><br />
+      <input matInput type="text" formControlName="name" autocomplete="off" />
+    </mat-form-field><br />
 
     <mat-form-field appearance="fill">
       <mat-label>Quiz theme</mat-label>
@@ -22,58 +17,46 @@
     <br />
 
     <div formArrayName="questions" appearance="fill">
-      <div
-        *ngFor="
+      <div *ngFor="
           let question of quizForm['controls']['questions']['controls'];
           let i = index
-        "
-      >
+        ">
         <div [formGroupName]="i">
           <h2>Question for quiz</h2>
           <mat-form-field appearance="fill">
             <mat-label>Question text</mat-label>
-            <input
-              matInput
-              formControlName="text"
-              autocomplete="off"
-            /> </mat-form-field
-          ><br />
+            <input matInput formControlName="text" autocomplete="off" />
+          </mat-form-field><br />
           <mat-form-field appearance="fill">
             <mat-label>Complexity</mat-label>
             <mat-select formControlName="complexity">
               <mat-option [value]="true">True</mat-option>
               <mat-option [value]="false">False</mat-option>
-            </mat-select> </mat-form-field
-          ><br />
+            </mat-select>
+          </mat-form-field><br />
 
           <mat-form-field appearance="fill">
             <mat-label>Theme</mat-label>
             <mat-select formControlName="theme">
-              <mat-option *ngFor="let theme of themeArray" [value]="theme.id">{{
-                theme.name
-              }}</mat-option>
+              <mat-option *ngFor="let theme of themeArray" [value]="theme.id">
+                {{theme.name}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
           <hr />
           <br />
 
           <div formArrayName="answers" appearance="fill">
-            <div
-              *ngFor="
+            <div *ngFor="
                 let answer of question['controls']['answers']['controls'];
                 let answerIndex = index
-              "
-            >
+              ">
               <div class="answers" [formGroupName]="answerIndex">
                 <h2>Answer</h2>
                 <mat-form-field appearance="fill">
                   <mat-label>Answer text</mat-label>
-                  <input
-                    matInput
-                    formControlName="text"
-                    autocomplete="off"
-                  /> </mat-form-field
-                ><br />
+                  <input matInput formControlName="text" autocomplete="off" />
+                </mat-form-field><br />
                 <mat-form-field appearance="fill">
                   <mat-label>it's correct answer?</mat-label>
                   <mat-select formControlName="isCorrect">
@@ -84,10 +67,7 @@
               </div>
             </div>
           </div>
-          <button
-            mat-button
-            (click)="addAnswer(question['controls']['answers'])"
-          >
+          <button mat-button (click)="addAnswer(question['controls']['answers'])">
             Add answer
           </button>
         </div>
@@ -97,13 +77,8 @@
     </div>
     <button mat-button (click)="addQuestion()">Add question</button>
 
-    <button
-      [disabled]="quizForm.invalid"
-      mat-flat-button
-      type="submit"
-      (click)="onSubmit()"
-      (keydown.Enter)="onSubmit()"
-    >
+    <button [disabled]="quizForm.invalid" mat-flat-button type="submit" (click)="onSubmit()"
+      (keydown.Enter)="onSubmit()">
       Create
     </button>
     <mat-error [hidden]="!error" class="error">{{ error }}</mat-error>

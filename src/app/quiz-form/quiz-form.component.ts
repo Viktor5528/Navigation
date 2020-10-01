@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Theme } from '../services/enums/theme.enum';
 import { getThemeArray } from '../services/interfaces/themeArrayFunction';
 
 import { QuizService } from '../services/quiz-service';
