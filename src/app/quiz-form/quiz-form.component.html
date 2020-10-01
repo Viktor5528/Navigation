@@ -13,14 +13,11 @@
         <mat-option [value]="2">It</mat-option>
         <mat-option [value]="3">Math</mat-option>
       </mat-select>
-    </mat-form-field>
-    <br />
+    </mat-form-field><br />
 
     <div formArrayName="questions" appearance="fill">
-      <div *ngFor="
-          let question of quizForm['controls']['questions']['controls'];
-          let i = index
-        ">
+      <div *ngFor="let question of quizForm['controls']['questions']['controls'];
+          let i = index">
         <div [formGroupName]="i">
           <h2>Question for quiz</h2>
           <mat-form-field appearance="fill">
@@ -33,7 +30,8 @@
               <mat-option [value]="true">True</mat-option>
               <mat-option [value]="false">False</mat-option>
             </mat-select>
-          </mat-form-field><br />
+          </mat-form-field>
+          <br />
 
           <mat-form-field appearance="fill">
             <mat-label>Theme</mat-label>
@@ -47,10 +45,8 @@
           <br />
 
           <div formArrayName="answers" appearance="fill">
-            <div *ngFor="
-                let answer of question['controls']['answers']['controls'];
-                let answerIndex = index
-              ">
+            <div *ngFor="let answer of question['controls']['answers']['controls'];
+                let answerIndex = index">
               <div class="answers" [formGroupName]="answerIndex">
                 <h2>Answer</h2>
                 <mat-form-field appearance="fill">
