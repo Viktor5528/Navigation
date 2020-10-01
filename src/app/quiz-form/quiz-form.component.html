@@ -52,8 +52,11 @@
               <mat-option *ngFor="let theme of themeArray" [value]="theme.id">{{
                 theme.name
               }}</mat-option>
-            </mat-select> </mat-form-field
-          ><br />
+            </mat-select>
+          </mat-form-field>
+          <hr />
+          <br />
+
           <div formArrayName="answers" appearance="fill">
             <div
               *ngFor="
@@ -61,8 +64,7 @@
                 let answerIndex = index
               "
             >
-              <hr />
-              <div [formGroupName]="answerIndex">
+              <div class="answers" [formGroupName]="answerIndex">
                 <h2>Answer</h2>
                 <mat-form-field appearance="fill">
                   <mat-label>Answer text</mat-label>
