@@ -24,10 +24,10 @@ export class QuizFormComponent implements OnInit {
         answers: new FormArray([
           new FormGroup({
             text: new FormControl('', Validators.required),
-            isCorrect: new FormControl(true, Validators.required),
+            isCorrect: new FormControl(true),
           }),
         ]),
-        complexity: new FormControl(true, Validators.required),
+        complexity: new FormControl(true),
         theme: new FormControl('', Validators.required),
       }));
   }
@@ -37,7 +37,7 @@ export class QuizFormComponent implements OnInit {
     formArray.push(
       new FormGroup({
         text: new FormControl('', Validators.required),
-        isCorrect: new FormControl(false, Validators.required),
+        isCorrect: new FormControl(false),
       })
     );
   }
