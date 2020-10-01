@@ -38,6 +38,22 @@
               autocomplete="off"
             /> </mat-form-field
           ><br />
+          <mat-form-field appearance="fill">
+            <mat-label>Complexity</mat-label>
+            <mat-select formControlName="complexity">
+              <mat-option [value]="true">True</mat-option>
+              <mat-option [value]="false">False</mat-option>
+            </mat-select> </mat-form-field
+          ><br />
+
+          <mat-form-field appearance="fill">
+            <mat-label>Theme</mat-label>
+            <mat-select formControlName="theme">
+              <mat-option *ngFor="let theme of themeArray" [value]="theme.id">{{
+                theme.name
+              }}</mat-option>
+            </mat-select> </mat-form-field
+          ><br />
           <div formArrayName="answers" appearance="fill">
             <div
               *ngFor="
@@ -45,6 +61,7 @@
                 let answerIndex = index
               "
             >
+              <hr />
               <div [formGroupName]="answerIndex">
                 <h2>Answer</h2>
                 <mat-form-field appearance="fill">
@@ -65,24 +82,18 @@
               </div>
             </div>
           </div>
-          <mat-form-field appearance="fill">
-            <mat-label>Complexity</mat-label>
-            <mat-select formControlName="complexity">
-              <mat-option [value]="true">True</mat-option>
-              <mat-option [value]="false">False</mat-option>
-            </mat-select> </mat-form-field
-          ><br />
-
-          <mat-form-field appearance="fill">
-            <mat-label>Theme</mat-label>
-            <mat-select formControlName="theme">
-              <mat-option *ngFor=" let theme of themeArray" [value]="theme.id">{{theme.name}}</mat-option>
-            </mat-select> </mat-form-field
-          ><br />
+          <button
+            mat-button
+            (click)="addAnswer(question['controls']['answers'])"
+          >
+            Add answer
+          </button>
         </div>
+        <hr />
       </div>
       <br />
     </div>
+    <button mat-button (click)="addQuestion()">Add question</button>
 
     <button
       [disabled]="quizForm.invalid"

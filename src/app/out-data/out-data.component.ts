@@ -1,7 +1,4 @@
-import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { DataService } from '../data.service';
 import { DeleteQuesitonModel } from '../services/interfaces/QuestionModel';
 import { QuestionService } from '../services/question-service';
 

@@ -15,13 +15,29 @@ export class QuizFormComponent implements OnInit {
   quizForm: FormGroup;
   error: string;
 
-  constructor(private http: QuizService) {}
+  constructor(private http: QuizService) { }
 
-  public addAnswer() {
-    (this.quizForm.controls.answers as FormArray).controls.push(
+  public addQuestion() {
+    (this.quizForm.controls.questions as FormArray).controls.push(
       new FormGroup({
         text: new FormControl('', Validators.required),
-        isCorrect: new FormControl('', Validators.required),
+        answers: new FormArray([
+          new FormGroup({
+            text: new FormControl('', Validators.required),
+            isCorrect: new FormControl(true, Validators.required),
+          }),
+        ]),
+        complexity: new FormControl(true, Validators.required),
+        theme: new FormControl('', Validators.required),
+      }));
+  }
+  public addAnswer(formArray) {
+
+    console.log(formArray);
+    formArray.push(
+      new FormGroup({
+        text: new FormControl('', Validators.required),
+        isCorrect: new FormControl(false, Validators.required),
       })
     );
   }
