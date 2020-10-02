@@ -1,5 +1,5 @@
 export enum Theme {
-    B = 1,
-    It,
+    Biology = 1,
+    IT,
     Math
 }

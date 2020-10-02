@@ -1,5 +1,5 @@
 import { Theme } from '../enums/theme.enum';
-import { CreateAnswerModel } from './AnswerModels';
+import { AnswerModel, CreateAnswerModel } from './AnswerModels';
 
 export interface CreateQuestionModel {
     text: string;
@@ -15,4 +15,11 @@ export interface UpdateQuestionModel {
 }
 export interface DeleteQuesitonModel{
     id: number;
+}
+export interface QuestionModel{
+    id:number;
+    text:string;
+    answers: AnswerModel[];
+    complexity: boolean;
+    theme: Theme;
 }

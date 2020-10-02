@@ -37,6 +37,5 @@ export class OutDataComponent implements OnInit {
         this.questions.splice(indexElement, 1);
       }
     );
-
   }
 }

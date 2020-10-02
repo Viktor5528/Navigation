@@ -23,6 +23,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { DataService } from './data.service';
 import { AnswerService } from './services/answer-service';
 import { AccountService } from './services/account-service';
+import { QuestionService } from './services/question-service';
+import { QuizService } from './services/quiz-service';
 
 import { AppComponent } from './app.component';
 import { SignInComponent } from './auth/signin/signin.component';
@@ -35,10 +37,10 @@ import { SnackComponent } from './snack/snack.component';
 import { BodyComponent } from './body/body.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { QuestionFormComponent } from './question-form/question-form.component';
-import { QuestionService } from './services/question-service';
-
-import { QuizService } from './services/quiz-service';
 import { QuizFormComponent } from './quiz-form/quiz-form.component';
+import { UpdateQuizFormComponent } from './quiz-form/update-quiz-form/update-quiz-form.component';
+import { ReadyQuizzesComponent } from './quiz-form/ready-quizzes/ready-quizzes.component';
+
 
 
 const appRoutes: Routes = [
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'question', component: QuestionFormComponent },
   { path: 'quiz', component: QuizFormComponent },
+  { path: 'getquiz', component: ReadyQuizzesComponent },
   { path: '**', redirectTo: '' },
 ];
 @NgModule({
@@ -63,7 +66,9 @@ const appRoutes: Routes = [
     SignUpComponent,
     QuestionFormComponent,
     QuizFormComponent,
-    QuizFormComponent
+    QuizFormComponent,
+    UpdateQuizFormComponent,
+    ReadyQuizzesComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +100,7 @@ const appRoutes: Routes = [
       useClass: TokenInterceptor,
       multi: true,
     },
+    
   ],
   bootstrap: [AppComponent],
 })

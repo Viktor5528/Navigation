@@ -14,7 +14,7 @@ export class QuizFormComponent implements OnInit {
   quizForm: FormGroup;
   error: string;
 
-  constructor(private http: QuizService) { }
+  constructor(private http: QuizService) {}
 
   public addQuestion() {
     (this.quizForm.controls.questions as FormArray).controls.push(
@@ -28,17 +28,21 @@ export class QuizFormComponent implements OnInit {
         ]),
         complexity: new FormControl(true),
         theme: new FormControl('', Validators.required),
-      }));
+      }),
+    );
   }
   public addAnswer(formArray) {
-
     console.log(formArray);
-    formArray.push(
-      new FormGroup({
-        text: new FormControl('', Validators.required),
-        isCorrect: new FormControl(false),
-      })
-    );
+    if (formArray.value.length < 4) {
+      formArray.push(
+        new FormGroup({
+          text: new FormControl('', Validators.required),
+          isCorrect: new FormControl(false),
+        }),
+      );
+    } else {
+      alert('4 answers max');
+    }
   }
   public onSubmit() {
     console.log(this.quizForm.value);
@@ -49,8 +53,8 @@ export class QuizFormComponent implements OnInit {
         }
       },
       (error) => {
-        this.error = error.errors;
-      }
+        this.error = error.error;
+      },
     );
   }
 

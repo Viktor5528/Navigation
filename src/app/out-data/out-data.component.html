@@ -2,7 +2,8 @@
   <h2>Questions</h2>
   <mat-list *ngFor="let x of questions">
     <mat-list-item>
-      {{ x.text }}, {{x.complexity}}
+      <b>Question name: &#160;</b>{{ x.text }}, &#160;
+      <b>Question theme: &#160;</b>{{ x.theme }}
       <button mat-icon-button matSuffix (click)="deleteItem(x.id)">
         <mat-icon>clear</mat-icon>
       </button>

@@ -13,7 +13,7 @@ export class QuizService{
     url = URLs.quizURL;
     constructor(private http: HttpClient) { }
 
-    public getQuiz(): Observable<any[]> {
+    public getQuizzes(): Observable<any[]> {
         return this.http.get<any[]>(this.url);
     }
     public createQuiz(model: CreateQuizModel): Observable<any> {

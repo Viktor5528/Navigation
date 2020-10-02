@@ -19,14 +19,18 @@ button {
   text-align: center;
   margin: 0 auto;
 }
-.answers {
-  mat-form-field {
-    margin-left: 8px;
-    width: 20%;
-    margin-bottom: 10px;
-    display: flex;
-  }
+.answersField {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 80%;
 }
+.answers {
+  width: 18%;
+  margin-bottom: 10px;
+  display: flex;
+}
+
 .error {
   text-align: center;
 }
