@@ -4,39 +4,36 @@ import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account-service';
 import { SignUPModel } from 'src/app/services/interfaces/AccountModels';
 
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrls: ['./signup.component.scss'],
 })
 export class SignUpComponent {
   signUpform: FormGroup;
   model: SignUPModel;
   errorMessage: string;
   constructor(private http: AccountService, private route: Router) {
-
     this.signUpform = new FormGroup({
       login: new FormControl('', [Validators.required, Validators.email]),
       age: new FormControl('', [Validators.required, Validators.min(18), Validators.max(99)]),
-      password: new FormControl('', Validators.required)
+      password: new FormControl('', Validators.required),
     });
   }
 
   onSubmit() {
     this.model = this.signUpform.value;
     this.model.passwordConfirm = this.model.password;
-    console.log(this.model)
+    console.log(this.model);
     this.http.SignUP(this.model).subscribe(
-      result => {
+      (result) => {
         if (result) {
           this.route.navigate(['signin']);
         }
       },
-      error => {
+      (error) => {
         this.errorMessage = error.error;
-      }
+      },
     );
   }
-
 }

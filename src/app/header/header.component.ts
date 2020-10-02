@@ -8,5 +8,4 @@ import { DataService } from '../data.service';
 })
 export class HeaderComponent {
   constructor(private ds: DataService) {}
-
 }

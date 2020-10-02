@@ -1,26 +1,26 @@
 .alert[hidden] {
-    display: none;
-  }
-  .container {
-    margin-left: 8px;
-  }
-  mat-form-field {
-    margin-left: 8px;
-    width: 80%;
-    border: 0;
-    margin-bottom: 10px;
-  }
-  mat-label {
-    margin-left: 8px;
-  }
-  mat-button {
-    text-align: center;
-    margin: 0 auto;
-  }
-  .error{
-    text-align: center;
-  }
-  h2{
-      text-align: center;
-      width: 80%;
-  }
+  display: none;
+}
+.container {
+  margin-left: 8px;
+}
+mat-form-field {
+  margin-left: 8px;
+  width: 80%;
+  border: 0;
+  margin-bottom: 10px;
+}
+mat-label {
+  margin-left: 8px;
+}
+mat-button {
+  text-align: center;
+  margin: 0 auto;
+}
+.error {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  width: 80%;
+}

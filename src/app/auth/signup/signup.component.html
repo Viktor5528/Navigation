@@ -1,14 +1,11 @@
 <div class="container">
   <h2>Sign Up</h2>
-  <form  [formGroup]="signUpform">
+  <form [formGroup]="signUpform">
     <mat-form-field appearance="fill" autocomplete="off">
       <mat-label>Email</mat-label>
       <input matInput type="email" formControlName="login" autocomplete="off" />
       <mat-error
-        [hidden]="
-          signUpform.controls['login'].valid ||
-          signUpform.controls['login'].pristine
-        "
+        [hidden]="signUpform.controls['login'].valid || signUpform.controls['login'].pristine"
       >
         Поле обязательное для заполнения.
       </mat-error>
@@ -16,28 +13,15 @@
     <mat-form-field appearance="fill" autocomplete="off">
       <mat-label>Возраст</mat-label>
       <input matInput type="number" formControlName="age" autocomplete="off" />
-      <mat-error
-        [hidden]="
-          signUpform.controls['age'].pristine ||
-          signUpform.controls['age'].valid
-        "
-      >
+      <mat-error [hidden]="signUpform.controls['age'].pristine || signUpform.controls['age'].valid">
         Поле обязательное для заполнения.
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill" autocomplete="off">
       <mat-label>Пароль</mat-label>
-      <input
-        matInput
-        type="password"
-        formControlName="password"
-        autocomplete="off"
-      />
+      <input matInput type="password" formControlName="password" autocomplete="off" />
       <mat-error
-        [hidden]="
-          signUpform.controls['login'].valid ||
-          signUpform.controls['login'].pristine
-        "
+        [hidden]="signUpform.controls['login'].valid || signUpform.controls['login'].pristine"
       >
         Поле обязательно для заполнения.
       </mat-error>
@@ -52,8 +36,6 @@
     >
       Sign Up
     </button>
-    <mat-error [hidden]="!errorMessage" class="error">{{
-      errorMessage
-    }}</mat-error>
+    <mat-error [hidden]="!errorMessage" class="error">{{ errorMessage }}</mat-error>
   </form>
 </div>

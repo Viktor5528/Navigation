@@ -36,7 +36,13 @@
       </mat-error>
     </mat-form-field>
     <br />
-    <button mat-button type="submit" (click)="onSubmit()"  (keydown.Enter)="onSubmit()"  [disabled]="!signInForm.form.valid">
+    <button
+      mat-button
+      type="submit"
+      (click)="onSubmit()"
+      (keydown.Enter)="onSubmit()"
+      [disabled]="!signInForm.form.valid"
+    >
       Sign In
     </button>
     <mat-error [hidden]="!errorMessage" class="error">{{ errorMessage }}</mat-error>
