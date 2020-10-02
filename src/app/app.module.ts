@@ -31,7 +31,6 @@ import { SignInComponent } from './auth/signin/signin.component';
 import { SignUpComponent } from './auth/signup/signup.component';
 import { BtnLeftComponent } from './bnt-left/bnt-left.component';
 import { HeaderComponent } from './header/header.component';
-import { OutDataComponent } from './out-data/out-data.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SnackComponent } from './snack/snack.component';
 import { BodyComponent } from './body/body.component';
@@ -40,6 +39,7 @@ import { QuestionFormComponent } from './question-form/question-form.component';
 import { QuizFormComponent } from './quiz-form/quiz-form.component';
 import { UpdateQuizFormComponent } from './quiz-form/update-quiz-form/update-quiz-form.component';
 import { ReadyQuizzesComponent } from './quiz-form/ready-quizzes/ready-quizzes.component';
+import { OutDataComponent } from './question-form/out-data/out-data.component';
 
 
 

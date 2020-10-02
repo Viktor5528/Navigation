@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DeleteQuesitonModel } from '../services/interfaces/QuestionModel';
-import { QuestionService } from '../services/question-service';
+import { DeleteQuesitonModel } from 'src/app/services/interfaces/QuestionModel';
+import { QuestionService } from 'src/app/services/question-service';
 
 @Component({
   selector: 'app-output-data',
