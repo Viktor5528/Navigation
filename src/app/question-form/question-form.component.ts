@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { getThemeArray } from '../services/interfaces/themeArrayFunction';
 import { QuestionService } from '../services/question-service';
 
 @Component({
@@ -10,6 +11,7 @@ import { QuestionService } from '../services/question-service';
 export class QuestionFormComponent {
   error: string;
   questionForm: FormGroup;
+  themeArray = getThemeArray();
 
   constructor(private http: QuestionService) {
     this.questionForm = new FormGroup({

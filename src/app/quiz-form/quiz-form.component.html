@@ -9,9 +9,9 @@
     <mat-form-field appearance="fill">
       <mat-label>Quiz theme</mat-label>
       <mat-select formControlName="theme">
-        <mat-option [value]="1">B</mat-option>
-        <mat-option [value]="2">It</mat-option>
-        <mat-option [value]="3">Math</mat-option>
+        <mat-option *ngFor="let theme of themeArray" [value]="theme.id">
+          {{ theme.name }}
+        </mat-option>
       </mat-select> </mat-form-field
     ><br />
 

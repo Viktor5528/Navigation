@@ -37,7 +37,7 @@ export class QuizFormComponent implements OnInit {
       formArray.push(
         new FormGroup({
           text: new FormControl('', Validators.required),
-          isCorrect: new FormControl(false),
+          isCorrect: new FormControl(''),
         }),
       );
     } else {
