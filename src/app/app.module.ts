@@ -40,6 +40,7 @@ import { QuizFormComponent } from './quiz-form/quiz-form.component';
 import { UpdateQuizFormComponent } from './quiz-form/update-quiz-form/update-quiz-form.component';
 import { ReadyQuizzesComponent } from './quiz-form/ready-quizzes/ready-quizzes.component';
 import { OutDataComponent } from './question-form/out-data/out-data.component';
+import { CreateQuizFormComponent } from './quiz-form/create-quiz-form/create-quiz-form.component';
 
 
 
@@ -49,7 +50,7 @@ const appRoutes: Routes = [
   { path: 'signin', component: SignInComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'question', component: QuestionFormComponent },
-  { path: 'quiz', component: QuizFormComponent },
+  { path: 'createquiz', component: CreateQuizFormComponent },
   { path: 'getquiz', component: ReadyQuizzesComponent },
   { path: '**', redirectTo: '' },
 ];
@@ -68,7 +69,8 @@ const appRoutes: Routes = [
     QuizFormComponent,
     QuizFormComponent,
     UpdateQuizFormComponent,
-    ReadyQuizzesComponent
+    ReadyQuizzesComponent,
+    CreateQuizFormComponent
   ],
   imports: [
     BrowserModule,

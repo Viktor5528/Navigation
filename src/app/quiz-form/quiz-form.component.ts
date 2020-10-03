@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { getThemeArray } from '../services/interfaces/themeArrayFunction';
 
@@ -12,7 +12,10 @@ import { QuizService } from '../services/quiz-service';
 export class QuizFormComponent implements OnInit {
   themeArray = getThemeArray();
   quizForm: FormGroup;
+  @Input()
   error: string;
+  @Output()
+  submitEvent = new EventEmitter<any>();
 
   constructor(private http: QuizService) {}
 
@@ -45,17 +48,8 @@ export class QuizFormComponent implements OnInit {
     }
   }
   public onSubmit() {
-    console.log(this.quizForm.value);
-    this.http.createQuiz(this.quizForm.getRawValue()).subscribe(
-      (result) => {
-        if (result) {
-          this.quizForm.reset();
-        }
-      },
-      (error) => {
-        this.error = error.error;
-      },
-    );
+    this.submitEvent.emit(this.quizForm.getRawValue());
+    // 
   }
 
   ngOnInit(): void {
