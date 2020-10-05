@@ -2,9 +2,9 @@
   <h2>Quizzes</h2>
   <mat-list *ngFor="let quiz of quizzes">
     <mat-list-item>
-      <b>Quiz name: &#160;</b> {{ quiz.name }},&#160;
-      <b>Quiz theme: &#160;</b>
-      {{ quiz.theme }}
+      <b>Quiz name: &#160;</b> {{ quiz.name }},&#160; <b>Quiz theme: &#160;</b> {{ quiz.theme }}
+      <button mat-button (click)="update(quiz.id)">Update</button>
     </mat-list-item>
   </mat-list>
+  <mat-error [hidden]="!error"> {{ error }} </mat-error>
 </div>

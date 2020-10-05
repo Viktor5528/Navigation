@@ -1,5 +1,5 @@
 import { Theme } from '../enums/theme.enum';
-import { CreateQuestionModel, QuestionModel } from './QuestionModel';
+import { CreateQuestionModel } from './QuestionModel';
 
 export interface CreateQuizModel {
     name: string;
@@ -9,6 +9,6 @@ export interface CreateQuizModel {
 export interface UpdateQuizModel{
     id: number;
     name: string;
-    questions: QuestionModel[];
+    questions: CreateQuestionModel[];
     theme: Theme;
 }

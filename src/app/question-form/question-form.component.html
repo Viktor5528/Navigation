@@ -6,9 +6,29 @@
       <input matInput type="text" formControlName="text" autocomplete="off" />
     </mat-form-field>
 
-    <div formArrayName="answers" appearance="fill">
+    <mat-form-field appearance="fill">
+      <mat-label>Complexity</mat-label>
+      <mat-select formControlName="complexity">
+        <mat-option [value]="true">True</mat-option>
+        <mat-option [value]="false">False</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+
+    <mat-form-field appearance="fill">
+      <mat-label>Theme</mat-label>
+      <mat-select formControlName="theme">
+        <mat-option *ngFor="let theme of themeArray" [value]="theme.id">
+          {{ theme.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <hr />
+
+    <div formArrayName="answers" appearance="fill" class="answers">
       <div *ngFor="let x of questionForm.controls['answers']['controls']; let i = index">
-        <div [formGroupName]="i">
+        <div [formGroupName]="i" class="answersField">
           <h2>Answer</h2>
           <mat-form-field appearance="fill">
             <mat-label>Answer text</mat-label>
@@ -22,28 +42,13 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <hr />
       </div>
-      <button mat-button (click)="addAnswer()">Add answer</button>
       <br />
     </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Complexity</mat-label>
-      <mat-select formControlName="complexity">
-        <mat-option [value]="true">True</mat-option>
-        <mat-option [value]="false">False</mat-option>
-      </mat-select> </mat-form-field
-    ><br />
-
-    <mat-form-field appearance="fill">
-      <mat-label>Theme</mat-label>
-      <mat-select formControlName="theme">
-        <mat-option *ngFor="let theme of themeArray" [value]="theme.id">
-          {{ theme.name }}
-        </mat-option>
-      </mat-select> </mat-form-field
-    ><br />
+    <button mat-button (click)="addAnswer(questionForm['controls']['answers'])">Add answer</button>
+    <hr />
+    <br /><br />
 
     <button
       [disabled]="questionForm.invalid"

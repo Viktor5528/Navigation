@@ -1,4 +1,3 @@
-import { QuestionModel } from './QuestionModel';
 
 export interface CreateAnswerModel {
     text: string;
@@ -10,10 +9,4 @@ export interface UpdateAnswerModel {
 }
 export interface DeleteAnswerModel {
     id: number;
-}
-export interface AnswerModel{
-    id: number;
-    text: string;
-    isCorrect: boolean;
-    question: QuestionModel;
 }

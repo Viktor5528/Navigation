@@ -2,11 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  HttpClient,
-  HttpClientModule,
-  HTTP_INTERCEPTORS,
-} from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatSliderModule } from '@angular/material/slider';
@@ -18,7 +14,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
 
 import { DataService } from './data.service';
 import { AnswerService } from './services/answer-service';
@@ -41,8 +36,7 @@ import { UpdateQuizFormComponent } from './quiz-form/update-quiz-form/update-qui
 import { ReadyQuizzesComponent } from './quiz-form/ready-quizzes/ready-quizzes.component';
 import { OutDataComponent } from './question-form/out-data/out-data.component';
 import { CreateQuizFormComponent } from './quiz-form/create-quiz-form/create-quiz-form.component';
-
-
+import { QuizUpdateHelper } from './services/quizUpdateHelper';
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -50,6 +44,7 @@ const appRoutes: Routes = [
   { path: 'signin', component: SignInComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'question', component: QuestionFormComponent },
+  { path: 'updatequiz', component: UpdateQuizFormComponent },
   { path: 'createquiz', component: CreateQuizFormComponent },
   { path: 'getquiz', component: ReadyQuizzesComponent },
   { path: '**', redirectTo: '' },
@@ -70,7 +65,7 @@ const appRoutes: Routes = [
     QuizFormComponent,
     UpdateQuizFormComponent,
     ReadyQuizzesComponent,
-    CreateQuizFormComponent
+    CreateQuizFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +82,7 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [
     DataService,
@@ -102,8 +97,8 @@ const appRoutes: Routes = [
       useClass: TokenInterceptor,
       multi: true,
     },
-    
+    QuizUpdateHelper,
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,5 +1,5 @@
 .alert[hidden] {
-  display: none;
+  display: flex;
 }
 .container {
   margin-left: 8px;
@@ -19,16 +19,10 @@ button {
   text-align: center;
   margin: 0 auto;
 }
-.answersField {
-  display: block;
-  margin: 0;
-  padding: 0;
-  width: 80%;
-}
 .answers {
-  width: 18%;
-  margin-bottom: 10px;
   display: flex;
+  flex-wrap: wrap;
+  
 }
 
 .error {

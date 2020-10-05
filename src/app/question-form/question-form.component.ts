@@ -26,13 +26,18 @@ export class QuestionFormComponent {
       theme: new FormControl(1, Validators.required),
     });
   }
-  public addAnswer() {
-    (this.questionForm.controls.answers as FormArray).controls.push(
-      new FormGroup({
-        text: new FormControl('', Validators.required),
-        isCorrect: new FormControl('', Validators.required),
-      }),
-    );
+  public addAnswer(formArray) {
+    console.log(formArray);
+    if (formArray.value.length < 4) {
+      formArray.push(
+        new FormGroup({
+          text: new FormControl('', Validators.required),
+          isCorrect: new FormControl(''),
+        }),
+      );
+    } else {
+      alert('4 answers max');
+    }
   }
   public onSubmit() {
     this.http.createQuestion(this.questionForm.getRawValue()).subscribe(

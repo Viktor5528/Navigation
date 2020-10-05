@@ -50,7 +50,7 @@
                 let answerIndex = index
               "
             >
-              <div [formGroupName]="answerIndex" class="answersField">
+              <div [formGroupName]="answerIndex">
                 <h2>Answer</h2>
                 <mat-form-field appearance="fill">
                   <mat-label>Answer text</mat-label>
@@ -79,7 +79,9 @@
       </div>
       <br />
     </div>
-    <button mat-button (click)="addQuestion()">Add question</button>
+    <button mat-button (click)="addQuestion()">Add question</button><br /><br />
+    <hr />
+    <br />
 
     <button
       [disabled]="quizForm.invalid"
@@ -90,6 +92,6 @@
     >
       Create
     </button>
-    <mat-error [hidden]="!error" class="error">{{ error }}</mat-error>
+    <mat-error [hidden]="!error" class="error"> {{ error }} </mat-error>
   </form>
 </div>

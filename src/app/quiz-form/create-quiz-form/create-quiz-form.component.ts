@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { QuizService } from 'src/app/services/quiz-service';
+import { QuizFormComponent } from '../quiz-form.component';
 
 @Component({
   selector: 'app-create-quiz-form',
@@ -8,6 +9,10 @@ import { QuizService } from 'src/app/services/quiz-service';
 })
 export class CreateQuizFormComponent implements OnInit {
   public errorText: string;
+
+  @ViewChild(QuizFormComponent)
+  private child: QuizFormComponent;
+
   constructor(private http: QuizService) {}
 
   ngOnInit(): void {}
@@ -16,8 +21,7 @@ export class CreateQuizFormComponent implements OnInit {
     this.http.createQuiz(event).subscribe(
       (result) => {
         if (result) {
-          // this.quizForm.reset();
-          // ViewChild
+          this.child.quizForm.reset();
         }
       },
       (error) => {
